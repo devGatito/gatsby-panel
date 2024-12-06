@@ -1,0 +1,79 @@
+:root {
+	--db-base-color: #09111a;
+	--db-font-face: "Lato";
+	--db-title-face: "Lato";
+	--db-line-height: 1.4;
+	--db-small-relative: 90%;
+
+	//size
+	--db-font-base: 16px;
+	--db-size-xs: 12px;
+	--db-size-sm: 14px;
+	--db-size-md: 20px;
+	--db-size-lg: 25px;
+	--db-size-tl: 40px;
+	--db-size-jb: 60px;
+	--db-size-hr: 80px;
+	--db-size-mg: 150px;
+
+	//radius
+	--db-radius-sm: 2px;
+	--db-radius-md: 10px;
+	--db-radius-lg: 16px;
+	--db-radius-fluid: 100%;
+	--db-breakpoint-m: 320px;
+	--db-breakpoint-tb: 768px;
+	--db-breakpoint-l: 1024px;
+	--db-breakpoint-d: 1366px;
+	--db-breakpoint-hd: 1540px;
+	--db-breakpoint-w: 1920px;
+
+	//local variables
+	--contact-bg: #181818;
+	--db-white: white;
+	--db-black: black;
+}
+
+@import "dbgrid/scss/lib";
+
+#root,
+body {
+	overflow-x: hidden;
+}
+
+body,
+#root,
+#___gatsby,
+#gatsby-focus-wrapper {
+	scroll-behavior: smooth;
+	scroll-snap-type: proximity;
+	width: 100vw;
+	// overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+	width: 8px;
+}
+*::-webkit-scrollbar-track {
+	background: #fff;
+}
+*::-webkit-scrollbar-thumb {
+	background: #ccc;
+	border: 2px solid white;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: black;
+}
+
+.pinceles {
+	object-fit: contain;
+	position: absolute;
+	top: 60px;
+	z-index: -1;
+	transform: scale(1.4);
+
+	@media screen and (min-width: 1024px) {
+		top: -100px;
+		transform: scale(1);
+	}
+}

@@ -1,0 +1,13 @@
+.cache
+.vscode
+node_modules
+.DS_Store
+target
+.firebase/
+yarn.lock
+package-lock.json
+yarn-error.log
+selenium/
+.env.development
+.env.production
+public/

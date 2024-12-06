@@ -1,0 +1,488 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Concurso",
+    "collectionId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+    "dateExported": "2024-10-04T20:30:44.820Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "70b100a2-061a-4f21-a75b-ecda8c1eda44",
+            "name": "auth",
+            "containerId": "",
+            "created": "2024-10-04T16:05:23.215Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "356dde16-680a-4211-a353-e79ae10f38d4",
+            "name": "users",
+            "containerId": "",
+            "created": "2024-10-04T16:06:09.494Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "participants",
+            "containerId": "",
+            "created": "2024-10-04T18:03:17.141Z",
+            "sortNum": 40000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "f50da423-e6ed-403f-a820-b5dedd2dffe2",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "70b100a2-061a-4f21-a75b-ecda8c1eda44",
+            "name": "LoginAnonymous",
+            "url": "{{prod}}",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-09-17T18:16:44.945Z",
+            "modified": "2024-09-29T01:28:58.158Z",
+            "headers": [],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation LoginAnonymous {\n  generateAnonymousToken {\n    token\n    uuid\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "e44b9629-f0d0-4858-a2a6-9b386d8c8242",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "70b100a2-061a-4f21-a75b-ecda8c1eda44",
+            "name": "LoginUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-18T00:19:22.424Z",
+            "modified": "2024-09-30T00:05:20.358Z",
+            "headers": [],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation LoginUser($credentials: LoginInput!) {\n  login(credentials: $credentials) {\n    token\n    user {\n      id\n      name\n      email\n      role\n    }\n  }\n}",
+                    "variables": "{\n  \"credentials\": {\n    \"email\": \"superadmin@digitalbooting.com\",\n    \"password\": \"admin1234\"\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "a5a20e52-e577-4dcd-bdc6-e15af5755563",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "70b100a2-061a-4f21-a75b-ecda8c1eda44",
+            "name": "LogoutUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-09-18T14:39:20.939Z",
+            "modified": "2024-09-27T21:52:33.737Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyNzQ3MzkyOCwiZXhwIjoxNzI3NDc3NTI4LCJuYmYiOjE3Mjc0NzM5MjgsImp0aSI6Img3djA1T0ttYnB0TnRJaGYiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.YHoXLrnCv1RVEVfBllQAjAbOP7PcPzP9DC1MWd8xOn8"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation {logout}"
+                }
+            }
+        },
+        {
+            "_id": "943f755d-fd85-48f7-aa00-7b7a06a034b3",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "70b100a2-061a-4f21-a75b-ecda8c1eda44",
+            "name": "RegisterUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-09-18T15:35:21.341Z",
+            "modified": "2024-10-04T16:44:02.951Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA1ODM1MCwiZXhwIjoxNzI4MDYxOTUxLCJuYmYiOjE3MjgwNTgzNTEsImp0aSI6Im5YbG9Rc1Z6TVJncGQ0UEUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.D3EAUEDc7GoJdEFcVbhDMz1Hm2ySAaVmzOn3HN912zI"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation RegisterUser($input: RegisterInput!) {\n  register(input: $input) {\n    user {\n      name\n      email\n      role\n    }\n    token\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"name\": \"John Doe\",\n    \"phone\": \"00 0000 0000\",\n    \"email\": \"johndoeq@example.com\",\n    \"password\": \"password123\",\n    \"role\": \"public\"\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "a318dc90-fc3f-418a-ad16-ce26f77d74e5",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "356dde16-680a-4211-a353-e79ae10f38d4",
+            "name": "GetUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2024-10-04T16:06:21.062Z",
+            "modified": "2024-10-04T16:13:07.046Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA1ODM1MCwiZXhwIjoxNzI4MDYxOTUxLCJuYmYiOjE3MjgwNTgzNTEsImp0aSI6Im5YbG9Rc1Z6TVJncGQ0UEUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.D3EAUEDc7GoJdEFcVbhDMz1Hm2ySAaVmzOn3HN912zI"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetUser($id: ID!) {\n  getUser(id: $id) {\n    name\n    phone\n    email\n    role\n  }\n}",
+                    "variables": "{\n  \"id\": 1\n}"
+                }
+            }
+        },
+        {
+            "_id": "73781373-84dd-4130-9a54-60d4fc3d933b",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "356dde16-680a-4211-a353-e79ae10f38d4",
+            "name": "GetUsers",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-10-04T16:13:34.504Z",
+            "modified": "2024-10-04T16:20:01.908Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA1ODM1MCwiZXhwIjoxNzI4MDYxOTUxLCJuYmYiOjE3MjgwNTgzNTEsImp0aSI6Im5YbG9Rc1Z6TVJncGQ0UEUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.D3EAUEDc7GoJdEFcVbhDMz1Hm2ySAaVmzOn3HN912zI"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetUsers {\n  getUsers {\n    id\n    uuid\n    name\n    phone\n    email\n    role\n    created_at\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "988e829e-cd88-47ef-ad73-cbbb3936989a",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "356dde16-680a-4211-a353-e79ae10f38d4",
+            "name": "UpdateUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-10-04T16:22:27.821Z",
+            "modified": "2024-10-04T16:37:03.263Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA1ODM1MCwiZXhwIjoxNzI4MDYxOTUxLCJuYmYiOjE3MjgwNTgzNTEsImp0aSI6Im5YbG9Rc1Z6TVJncGQ0UEUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.D3EAUEDc7GoJdEFcVbhDMz1Hm2ySAaVmzOn3HN912zI"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation UpdateUser($id: ID!, $input: UpdateUserInput!) {\n  updateUser(id: $id, input: $input) {\n    id\n    uuid\n    name\n    phone\n    email\n    role\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": \"1\",\n  \"input\": {\n    \"name\": \"Leonardo\",\n    \"phone\": \"5548067069\"\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "6180dcf7-8d8e-4849-8640-c00d2f6c7336",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "356dde16-680a-4211-a353-e79ae10f38d4",
+            "name": "DeleteUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-10-04T16:39:23.949Z",
+            "modified": "2024-10-04T16:40:54.470Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA1ODM1MCwiZXhwIjoxNzI4MDYxOTUxLCJuYmYiOjE3MjgwNTgzNTEsImp0aSI6Im5YbG9Rc1Z6TVJncGQ0UEUiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.D3EAUEDc7GoJdEFcVbhDMz1Hm2ySAaVmzOn3HN912zI"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation DeleteUser($id: ID!) {\n  deleteUser(id: $id)\n}",
+                    "variables": "{\n  \"id\": 5\n}"
+                }
+            }
+        },
+        {
+            "_id": "604de146-3604-4c91-95b8-0b9d7db91d2d",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipant",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-10-04T18:03:33.140Z",
+            "modified": "2024-10-04T19:17:29.355Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipant($id: ID!) {\n  getParticipant(id: $id) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    development {\n      id\n      development\n      segment\n      number_codes\n      state\n      city\n      country\n      created_at\n      updated_at\n    }\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": 1\n}"
+                }
+            }
+        },
+        {
+            "_id": "83c90f03-dd75-427d-9177-1d1c506fd66e",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipantKRM",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 95000,
+            "created": "2024-10-04T20:16:37.290Z",
+            "modified": "2024-10-04T20:23:32.471Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA3MzA2MSwiZXhwIjoxNzI4MDc2NjYxLCJuYmYiOjE3MjgwNzMwNjEsImp0aSI6IlZGU2gyZERwVmtxTEJTTXEiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.fRYD4UlZAse1_ZH5ObXDppvcxDnTLh5uV_AS_fsnJ0E"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipantKRM($id: String!) {\n  getParticipantKRM(id: $id) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    development {\n      id\n      development\n      segment\n      number_codes\n      state\n      city\n      country\n      created_at\n      updated_at\n    }\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": \"00009\"\n}"
+                }
+            }
+        },
+        {
+            "_id": "4a6f89ca-1b2d-46ba-8840-d397bd23535a",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipants",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-10-04T19:12:42.186Z",
+            "modified": "2024-10-04T19:13:01.672Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipants {\n  getParticipants {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    development {\n      id\n      development\n      segment\n      number_codes\n      state\n      city\n      country\n      created_at\n      updated_at\n    }\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": 1\n}"
+                }
+            }
+        },
+        {
+            "_id": "9efc5a61-fda6-4f37-8f7f-f40286a14a27",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipantsDevelopment",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 110000,
+            "created": "2024-10-04T19:17:44.173Z",
+            "modified": "2024-10-04T19:21:19.170Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipantsDevelopment($id: ID!) {\n  getParticipantsByDevelopment(development_id: $id) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": 1\n}"
+                }
+            }
+        },
+        {
+            "_id": "2be9f385-277e-46df-b8e0-7ddfd970ec81",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipantsBySegment",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-10-04T19:22:54.784Z",
+            "modified": "2024-10-04T19:25:17.185Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipantsBySegment($segment:String!) {\n  getParticipantsBySegment(segment: $segment) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"segment\": \"VIS\"\n}"
+                }
+            }
+        },
+        {
+            "_id": "d0aa252b-889b-4ed7-9996-d17c30132c3c",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipantsByType",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-10-04T19:26:36.701Z",
+            "modified": "2024-10-04T19:27:51.094Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipantsByType($type: String!) {\n  getParticipantsByType(type: $type) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"type\": \"visita\"\n}"
+                }
+            }
+        },
+        {
+            "_id": "d1745290-03a8-409f-ac00-62bb52aa2c13",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "GetParticipantsByUser",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 140000,
+            "created": "2024-10-04T19:28:22.002Z",
+            "modified": "2024-10-04T19:29:19.050Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "query GetParticipantsByUser($user_id: ID!) {\n  getParticipantsByUser(user_id: $user_id) {\n    id\n    krm_id\n    name\n    uuid\n    register_type\n    registered {\n      id\n      uuid\n      name\n      phone\n      email\n      role\n    }\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"user_id\": 1\n}"
+                }
+            }
+        },
+        {
+            "_id": "bf4cf5aa-af19-45f8-9317-bb7d5d2446f6",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "CreateParticipant",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 150000,
+            "created": "2024-10-04T19:30:10.542Z",
+            "modified": "2024-10-04T19:54:33.701Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation CreateParticipant($input: ParticipantInput!) {\n  createParticipant(input: $input) {\n    id\n    krm_id\n    email\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"input\": {\n    \"krm_id\": \"00010\",\n    \"register_type\": \"visita\",\n    \"uuid\": \"qwertyuio-qwertyuio-sdfghjkl\",\n    \"registered_by\": 1,\n    \"name\": \"Leito\",\n    \"phone\": \"55 0000 0000\",\n    \"email\": \"leito@gmail.com\",\n    \"development_id\": 2,\n    \"segment\": \"VIS\",\n    \"folio_type\": \"FC\"\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "8a686647-4b9e-465b-8e1f-c56d6f94bbdb",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "UpdateParticipant",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 160000,
+            "created": "2024-10-04T19:59:57.730Z",
+            "modified": "2024-10-04T20:04:18.760Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation UpdateParticipant($id: ID!, $input: UpdateParticipantInput!) {\n  updateParticipant(id: $id, input: $input) {\n    id\n    krm_id\n    email\n    phone\n    segment\n    folio_type\n    created_at\n    updated_at\n  }\n}",
+                    "variables": "{\n  \"id\": 9,\n  \"input\": {\n    \"krm_id\": \"00011\",\n    \"registered_by\": 2,\n    \"name\": \"Leito\",\n    \"phone\": \"55 0000 0000\",\n    \"email\": \"leito@gmail.com\",\n    \"development_id\": 2,\n    \"segment\": \"RES\",\n    \"folio_type\": \"FV\"\n  }\n}"
+                }
+            }
+        },
+        {
+            "_id": "00ab235c-2217-492e-8bbf-3f9be3af1b1e",
+            "colId": "2ebd8496-7645-49e9-9fc4-626604a3a6e9",
+            "containerId": "7c88cdf4-5e74-44f1-a108-83299dc0756d",
+            "name": "DeleteParticipant",
+            "url": "{{baseUrl}}",
+            "method": "POST",
+            "sortNum": 170000,
+            "created": "2024-10-04T20:04:47.803Z",
+            "modified": "2024-10-04T20:05:31.932Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDIvZ3JhcGhxbCIsImlhdCI6MTcyODA2ODg3MCwiZXhwIjoxNzI4MDcyNDcwLCJuYmYiOjE3MjgwNjg4NzAsImp0aSI6InJ3TEVibE1SeFJHWVlzNEwiLCJzdWIiOiIxIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.OVVVJf5zuyHzDctdmWGq6gQ4-PffP0gOkazt9L8Kqo0"
+                }
+            ],
+            "body": {
+                "type": "graphql",
+                "raw": "",
+                "form": [],
+                "graphql": {
+                    "query": "mutation DeleteParticipant($id: ID!) {\n  deleteParticipant(id: $id)\n}",
+                    "variables": "{\n  \"id\": 9\n}"
+                }
+            }
+        }
+    ],
+    "ref": "KkIR38Cf6T3TtGoXOyf82lrkzZ8GOX1NNAH8TNsJ0MQ4WYWmdWrGGE8osxSvp-6a38geIUyK9UAEVoV3ag2O9w"
+}

@@ -1,0 +1,28 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@root/*": ["./*"],
+			"@src/*": ["src/*"],
+			"@seo/*": ["src/seo/*"],
+			"@query/*": ["src/query/*"],
+			"@layout": ["src/layout/index.js"],
+			"@components": ["src/components/index.js"],
+			"@modules": ["src/modules/index.js"],
+			"@public/*": ["src/containers/dbpublic/*"],
+			"@admin/*": ["src/containers/dbadmin/index.js"],
+			"@assets/*": ["src/assets/images/*"],
+			"@graphic/*": ["src/assets/*"],
+			"@widgets/*": ["src/widgets/*"],
+			"@documents/*": ["src/assets/documents/*"],
+			"@functions/*": ["src/functions/*"],
+			"@storage/*": ["src/storage/*"],
+			"@services/*": ["src/services/*"],
+			"@constants/*": ["src/constants/*"],
+			"@hooks/*": ["src/hooks/*"],
+			"@middlewares/*": ["src/middlewares/*"],
+			"@utils/*": ["src/utils/*"],
+			"@lang/*": ["src/lang/*"]
+		}
+	}
+}
