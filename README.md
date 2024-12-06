@@ -1,4 +1,4 @@
-# Concurso cuenta con Ruba
+# panel
 
-sistema de adminsitración de concurso cuenta con ruba
+sistema de adminsitración de concurso cuenta con panel
 # gatsby-panel
